@@ -2,7 +2,7 @@
   <div>
     <input v-model="emailAddress" type="email">
     <input v-model="password" type="password">
-    <input type="button" value="Login" @click="loginMethod">
+    <input type="button" value="Login" @click="signInWithEmail">
   </div>
 </template>
 
@@ -15,12 +15,12 @@ export default {
     }
   },
   methods: {
-    loginMethod () {
+    signInWithEmail () {
       const user = {
         email: this.emailAddress,
         password: this.password
       }
-      this.$store.dispatch('signInAction', user)
+      this.$store.dispatch('user/signInWithEmail', user)
     }
   }
 }
