@@ -24,11 +24,15 @@ https://usernames.online
 * Moment.js
 * Animate.css
 ## Firebase Setup
-Create initializeFirebase.js
+Create initializeFirebase.js in /plugins
 ```
-import firebase from 'firebase/app'
+import firebase from 'firebase'
+import 'firebase/auth'
+import 'firebase/firestore'
+const consola = require('consola')
 
-export default firebase.initializeApp({
+if (!firebase.apps.length) {
+  firebase.initializeApp({
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
     databaseURL: "YOUR_DATABASE_URL",
@@ -37,11 +41,15 @@ export default firebase.initializeApp({
     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
     appId: "YOUR_APP_ID",
     measurementId: "YOUR_MEASUREMENT_ID"
-});
-```
-Then require it from main.js (choosing the right path):
-```
-require('./initializeFirebase');
+  })
+  consola.success('Firebase have been initialized')
+} else {
+  consola.info('Firebase is already initialized')
+}
+
+export const db = firebase.firestore()
+export const auth = firebase.auth()
+
 ```
 ## Build Setup
 
