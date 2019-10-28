@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import consola from 'consola'
 import { auth } from '@/plugins/initializeFirebase'
 import User from '@/plugins/Classes/userDataClass'
 import Navigation from '~/components/layout/Navigation.vue'
@@ -34,7 +33,6 @@ export default {
       this.loading = true
       if (user) {
         const u = user
-        consola.success('You are logged in!', user)
         this.$store.dispatch('user/setUserAction', new User(u.uid, u.displayName, u.email, u.emailVerified, u.phoneNumber, u.photoURL, u.metadata))
         if (this.$store.state.user.data) {
           this.$store.dispatch('user/setUserDBAction', this.$store.state.user.data.uid)
@@ -42,7 +40,8 @@ export default {
         this.loading = false
         this.isAuth = true
       } else {
-        consola.error('You are not logged in!', null)
+        this.$store.dispatch('user/setUserAction', null)
+        this.$store.commit('user/setUserDB', null)
         this.loading = false
         this.isAuth = false
       }

@@ -46,19 +46,22 @@ const actions = {
     commit('setUser', payload)
   },
   setUserDBAction ({ commit }, payload) {
-    consola.success(payload)
-    db.collection('users').doc(payload)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          commit('setUserDB', doc.data())
-        } else {
-          consola.error(`There is no document: ${doc.data()}`)
-        }
-      })
-      .catch((error) => {
-        consola.error('Error getting document:', error)
-      })
+    if (!payload) {
+      commit('setUserDB', payload)
+    } else {
+      db.collection('users').doc(payload)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            commit('setUserDB', doc.data())
+          } else {
+            consola.error(`There is no document: ${doc.data()}`)
+          }
+        })
+        .catch((error) => {
+          consola.error('Error getting document:', error)
+        })
+    }
   }
 }
 
