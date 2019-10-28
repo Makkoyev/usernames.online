@@ -1,5 +1,5 @@
 const state = () => ({
-  loading: true,
+  dataDB: [],
   data: []
 })
 

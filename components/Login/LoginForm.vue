@@ -4,7 +4,6 @@
     <input v-model="password" type="password">
     <input type="button" value="Login" @click="signInWithEmail">
     <input type="button" value="LogOut" @click="signOutWithEmail">
-    <div>{{ this.$store.state.user.data }}</div>
   </div>
 </template>
 

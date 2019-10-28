@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="!loading">
-      <Navigation :isAuth='isAuth' />
+      <Navigation :isAuth="isAuth" />
       <div class="container">
         <nuxt />
       </div>
@@ -37,9 +37,10 @@ export default {
         consola.success('You are logged in!', user)
         this.$store.dispatch('user/setUserAction', new User(u.uid, u.displayName, u.email, u.emailVerified, u.phoneNumber, u.photoURL, u.metadata))
         if (this.$store.state.user.data) {
-          this.loading = false
-          this.isAuth = true
+          this.$store.dispatch('user/setUserDBAction', this.$store.state.user.data.uid)
         }
+        this.loading = false
+        this.isAuth = true
       } else {
         consola.error('You are not logged in!', null)
         this.loading = false
