@@ -1,4 +1,8 @@
 # Developing Alpha v1.0
+
+## Converting to Nuxt.js
+https://github.com/Makkoyev/usernames.online/tree/Nuxt.js
+
 ## Description:
 It is an open source community where you can meet other users, review them, chat with them, ask questions and confess your sins :scream:. You will be able to sponsor your social network account for free to have even more followers.
 
