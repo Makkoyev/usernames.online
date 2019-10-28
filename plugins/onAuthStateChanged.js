@@ -3,8 +3,8 @@ const consola = require('consola')
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    consola.success('You are logged in!')
+    consola.success('You are logged in!', user)
   } else {
-    consola.info('You are not logged in!')
+    consola.error('You are not logged in!')
   }
 })
