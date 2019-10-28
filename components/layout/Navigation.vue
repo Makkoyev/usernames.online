@@ -5,22 +5,22 @@
     </div>
     <ul>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link class="unEffect" to="/">
           Home
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/explore">
+        <nuxt-link class="unEffect" to="/explore">
           Explore
         </nuxt-link>
       </li>
       <li v-if="!isAuth">
-        <nuxt-link to="/login">
+        <nuxt-link class="unEffect" to="/login">
           Login
         </nuxt-link>
       </li>
       <li v-if="!isAuth">
-        <nuxt-link to="/register">
+        <nuxt-link class="unEffect" to="/register">
           Register
         </nuxt-link>
       </li>

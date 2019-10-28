@@ -1,0 +1,77 @@
+@import "../variables/colors";
+#nav-bar, #footer {
+  background: $onyx;
+  display: flex;
+  justify-content: space-evenly;
+  height: 10vh;
+  >.logo {
+    padding: 1rem;
+    align-self: center;
+    color: rgba($color: $white, $alpha: 0.85);
+    letter-spacing: 1.3px;
+  }
+  ul {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    li {
+      list-style: none;
+      padding: 1rem;
+      .unEffect {
+        &::after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 2px;
+          background: rgba($color: $white, $alpha: 0.65);
+          transition: width 1s ease;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+      a {
+        color: rgba($color: $white, $alpha: 0.65);
+        text-transform: uppercase;
+        text-decoration: none;
+        transition-duration: 0.5s;
+        &:hover {
+          color: rgba($color: $white, $alpha: 0.85);
+        }
+        i {
+          color: rgba($color: $white, $alpha: 0.65);
+          transition-duration: 0.5s;
+          &:hover {
+            color: rgba($color: $white, $alpha: 0.85);
+          }
+        }
+        >.fas{
+          transition-duration: .4s;
+          &:hover {
+            transform: rotate(360deg);
+          }
+        }
+        .fa-plus-circle {
+          &:hover {
+            color: yellow;
+          }
+        }
+        .fa-comment-alt {
+          &:hover {
+            color: yellow;
+          }
+        }
+        .fa-user-friends {
+          &:hover {
+            color: yellow;
+          }
+        }
+        .fa-user-circle {
+          &:hover {
+            color: yellow;
+          }
+        }
+      }
+    }
+  }
+}
