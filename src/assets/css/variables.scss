@@ -1,0 +1,15 @@
+@import "colors";
+// Container Variables
+$container: (
+  "height": 80vh,
+  "margin-h": 2vh,
+  "width": 90vw,
+  "margin-w": auto,
+);
+// Navigation and Footer Variables
+$layout: (
+    "height": 10vh,
+    "font-size": 1.2rem,
+    "color": $onyx,
+    "background": $white,
+);

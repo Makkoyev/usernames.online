@@ -1,0 +1,106 @@
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+#app > .container {
+  margin: 2vh auto;
+  width: 90vw;
+  min-height: 76vh;
+}
+
+#nav-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: white;
+  height: 10vh;
+  -webkit-box-shadow: 0 0 6px rgba(52, 62, 61, 0.4);
+          box-shadow: 0 0 6px rgba(52, 62, 61, 0.4);
+}
+
+#nav-bar .logo {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 1.6rem;
+}
+
+#nav-bar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#nav-bar ul li {
+  list-style: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#nav-bar ul li a {
+  padding: 2vmin;
+  text-decoration: none;
+  color: #343E3D;
+  font-size: 1.2rem;
+}
+
+#nav-bar a.router-link-exact-active {
+  color: #0055ff;
+}
+
+#footer a.router-link-exact-active {
+  color: #0055ff;
+}
+
+#footer {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: white;
+  -webkit-box-shadow: 0 0 6px rgba(52, 62, 61, 0.4);
+          box-shadow: 0 0 6px rgba(52, 62, 61, 0.4);
+}
+
+#footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#footer ul li {
+  list-style: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#footer ul li a {
+  padding: 2vmin;
+  text-decoration: none;
+  color: #343E3D;
+  font-size: 1.2rem;
+}
+/*# sourceMappingURL=layout.css.map */

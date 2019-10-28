@@ -1,0 +1,62 @@
+@import "mixins";
+@import "colors";
+@import "variables";
+@import "animations";
+
+// APP Layout
+#app {
+    >.container {
+        @include calcLayout(map-get($container, "height"), map-get($container, "margin-h"), map-get($container, "width"), map-get($container, "margin-w"));
+    }
+}
+// Navigation Layout
+#nav-bar {
+    @include justify(space-around);
+    background: map-get($layout, "background");
+    height: map-get($layout, "height");
+    box-shadow: 0 0 6px rgba($color: $onyx, $alpha: .4);
+    .logo {
+        @include align-self(center);
+        font-size: 1.6rem;
+    }
+    ul {
+        @include justify(space-evenly);
+        li {
+            list-style: none;
+            @include align-self(center);
+            a {
+                padding: 2vmin;
+                text-decoration: none;
+                color: map-get($layout, "color");
+                font-size: map-get($layout, "font-size");
+            }
+        }
+    }
+}
+// Router Link Active
+#nav-bar a.router-link-exact-active {
+    color: $blue;
+}
+#footer a.router-link-exact-active {
+    color: $blue;
+}
+// Footer Layout
+#footer {
+    height: map-get($layout, "height");
+    @include justify(space-around);
+    background: map-get($layout, "background");
+    box-shadow: 0 0 6px rgba($color: $onyx, $alpha: .4);
+    ul {
+        @include justify(space-evenly);
+        li {
+            list-style: none;
+            @include align-self(center);
+            a {
+                padding: 2vmin;
+                text-decoration: none;
+                color: map-get($layout, "color");
+                font-size: map-get($layout, "font-size");
+            }
+        }
+    }
+}

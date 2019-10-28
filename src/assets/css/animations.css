@@ -1,0 +1,15 @@
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+/*# sourceMappingURL=animations.css.map */

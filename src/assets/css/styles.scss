@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+
+@import "mixins";
+@import "colors";
+@import "variables";
+html * {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  box-sizing: content-box;
+  color: $onyx;
+}
+.cp-form {
+  display: grid;
+  grid-template-rows: 100px 500px 100px 100px 100px;
+  .cp-title {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .cp-content {
+    resize: none;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .cp-select {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .cp-anonymous {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .cp-create {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+// WALL LAYOUT
+.wall-wrapper {
+  display: flex;
+  flex-direction: column;
+  .post-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    .post {
+      flex-basis: 23%;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      margin: 1%;
+      box-shadow: 2px 2px 4px rgba($onyx, 0.4);
+      transition-duration: 0.5s;
+      border-radius: 12px;
+      &:hover {
+        box-shadow: 6px 6px 9px rgba($onyx, 0.4);
+      }
+      @media screen and (max-width: 1266px) {
+        flex-basis: 31%;
+      }
+      @media screen and (max-width: 935px) {
+        flex-basis: 48%;
+      }
+      @media screen and (max-width: 730px) {
+        flex-basis: 94%;
+        margin: 3%;
+      }
+      @media screen and (max-width: 384px) {
+        min-height: 250px;
+      }
+      .post-title {
+        flex-basis: 10%;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        padding: 1rem;
+        background: rgba($onyx, 0.1);
+      }
+      .card-img {
+        flex-basis: 100%;
+        $height: 250;
+        $width: 450;
+        border-radius: 12px 12px 0 0;
+        background: url("https://via.placeholder.com/#{$width}x#{$height}") center;
+        background-size: cover;
+        position: relative;
+        @media screen and (max-width: 384px) {
+          display: none;
+        }
+        .vote-counter{
+          position: absolute;
+          top: 5%;
+          left: 3%;
+          display: flex;
+          .vote{
+            display: flex;
+            flex-direction: column;
+            i{
+              transition-duration: .5s;
+              &:hover{
+                transform: scale(1.3);
+                cursor: pointer;
+              }
+            }
+          }
+          span{
+            align-self: center;
+            margin-left: 5px;
+          }
+        }
+        .like{
+          position: absolute;
+          top: 5%;
+          right:3%;
+          span{
+            margin-right: 5px;
+          }
+          i{
+            &:hover{
+              color: red;
+              cursor: pointer;
+            }
+          }
+        }
+        .share-social{
+          display: flex;
+          position: absolute;
+          top: 90%;
+          right:1%;
+          align-items: center;
+          .facebook{
+          }
+          i{
+            &:hover{
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .post-content {
+        flex-basis: 40%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        background: rgba($onyx, 0.05);
+      }
+      .post-data {
+        flex-basis: 10%;
+        margin: 0.4rem;
+        display: flex;
+        @include justify(space-around);
+        .read-more,
+        .post-author {
+          border-radius: 3px;
+          transition-duration: 0.5s;
+          background: rgba($blue, 0.4);
+          a {
+            text-decoration: none;
+            font-size: 1.1rem;
+          }
+        }
+        .post-author {
+          padding: 0.4rem 0.8rem;
+        }
+        .read-more {
+          padding: 0.4rem 0.8rem;
+          a {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+  .posts-navigation {
+    display: flex;
+    justify-content: center;
+    button {
+      padding: 0.4rem 0.8rem;
+      margin: 1rem;
+      border-radius: 3px;
+      border: none;
+      background: rgba($blue, 0.4);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+// Chat styling
+.chat-wrapper {
+  display: flex;
+  //background: rgba($onyx, .05);
+  @media screen and (max-width: 1200px) {
+    flex-direction: column-reverse;
+  }
+  .chat,
+  .users-online {
+    height: map-get($container, "height") - map-get($container, "margin-h") * 2;
+  }
+  .users-online {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    background: rgba($onyx, 0.05);
+    @media screen and (max-width: 1200px) {
+      margin-bottom: 1rem;
+    }
+    h2 {
+      padding: 0.4vh 0.8vh;
+      border-bottom: 1px dotted $onyx;
+      border-width: 5px;
+    }
+    .user {
+      display: flex;
+      flex-flow: row wrap;
+      span {
+        padding: 0.2vh 0.4vh;
+        a {
+          text-decoration: none;
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+  .chat {
+    flex-basis: 75%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px 0 0 0;
+    .messages {
+      flex-basis: 92%;
+      .message {
+        display: flex;
+        flex-direction: column;
+        padding: 0.4vh 0.8vh;
+        margin: 0.2rem;
+        .message-content,
+        .message-author {
+          min-width: 10%;
+          max-width: 50%;
+          padding: 0.4vh 0.8vh;
+          margin: 0.4vh 0.8vh;
+          border-radius: 3px;
+          p {
+          }
+          span {
+            font-size: 1rem;
+            color: rgba($onyx, 0.75);
+            background: rgba($onyx, 0.02);
+            a {
+              font-size: 1rem;
+              color: $onyx;
+            }
+          }
+        }
+        .message-content {
+          align-self: flex-start;
+          background: rgba($blue, 0.3);
+        }
+        .message-author {
+          align-self: flex-end;
+          background: rgba($eucalyptus, 1);
+        }
+      }
+    }
+    .chat-input {
+      flex-basis: 8%;
+      display: flex;
+      input[type="text"] {
+        flex-basis: 75%;
+        border-radius: 6px 0px 0px 6px;
+        border: none;
+        padding: 0.4vh 0.8vh;
+        background: rgba($onyx, 0.1);
+        &:focus {
+          outline: none;
+        }
+      }
+      input[type="button"] {
+        flex-basis: 25%;
+        border: none;
+        background: rgba($onyx, 0.7);
+        color: $white;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+// ScrollBar - Chat
+.scrollable {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($blue, 0.8);
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
+  }
+}
