@@ -30,8 +30,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/initializeFirebase' },
-    { src: '~/plugins/onAuthStateChanged' }
+    { src: '~/plugins/initializeFirebase' }
   ],
   /*
   ** Nuxt.js dev-modules

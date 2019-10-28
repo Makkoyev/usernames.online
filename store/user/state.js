@@ -1,5 +1,6 @@
 const state = () => ({
-  data: 'test'
+  loading: true,
+  data: []
 })
 
 export default state

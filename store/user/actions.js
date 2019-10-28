@@ -34,12 +34,16 @@ const actions = {
         consola.error(error.message)
       })
   },
-  signOutWithEmail () {
+  signOutWithEmail ({ commit }) {
     auth.signOut().then(() => {
       consola.success('Logged out from Usernames.Online')
+      commit('setUser', null)
     }).catch((error) => {
       consola.error(error.message)
     })
+  },
+  setUserAction ({ commit }, payload) {
+    commit('setUser', payload)
   }
 }
 

@@ -1,11 +1,11 @@
 import state from './state'
-import mutations from './mutations'
 import actions from './actions'
+import mutations from './mutations'
 
 const userState = {
   state,
-  mutations,
-  actions
+  actions,
+  mutations
 }
 
 export default userState
