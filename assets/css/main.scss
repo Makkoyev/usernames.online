@@ -1,0 +1,16 @@
+@import 'layout/navigation';
+@import 'layout/footer';
+@import 'variables/colors';
+@import 'layout/theme';
+@import 'variables/variables';
+@import "variables/mixins";
+html * {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.container {
+  @include calcLayout(map-get($container, "height"), map-get($container, "margin-h"), map-get($container, "width"), map-get($container, "margin-w"));
+}

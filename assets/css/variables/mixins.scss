@@ -1,0 +1,43 @@
+// Calculate width and height based $container
+@mixin calcLayout($height, $marginHeight, $width, $marginWidth) {
+  margin: $marginHeight $marginWidth;
+  @if $marginWidth == 'auto' {
+      width: $width;
+  } @else {
+      width: $width - $marginWidth*2;
+  }
+  @if $marginHeight == 'auto' {
+      min-height: $height;
+  } @else {
+      min-height: $height - $marginHeight*2;
+  }
+}
+// Flex Row
+@mixin flex-row {
+  display: flex;
+}
+// Flex Column
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin justify($content) {
+  display: flex;
+  justify-content: $content;
+}
+@mixin align($content) {
+  display: flex;
+  align-content: $content;
+}
+@mixin align-self($position) {
+  align-self: $position;
+}
+@mixin justify-self($position) {
+  justify-self: $position;
+}
+@mixin align-items($position) {
+  align-items: $position;
+}
+@mixin justify-items($position) {
+  justify-items: $position;
+}
