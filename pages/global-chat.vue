@@ -1,29 +1,24 @@
 <template>
-  <div>{{ messages }}</div>
+  <div class="messages-wrapper">
+    <noDisplayName v-if="!this.$store.state.user.data.displayName" />
+    <div class="messages-container" v-else>
+      <ChatContainer />
+      <sendMessage />
+    </div>
+  </div>
 </template>
 
 <script>
-import { db } from '@/plugins/initializeFirebase'
+import noDisplayName from '@/components/GlobalChat/noDisplayName'
+import ChatContainer from '@/components/GlobalChat/ChatContainer'
+import sendMessage from '@/components/GlobalChat/sendMessage'
+
 export default {
   name: 'GlobalChat',
-  data () {
-    return {
-      messages: []
-    }
-  },
-  methods: {
-    loadMessages () {
-      db.collection('globalChat')
-        .orderBy('createdAt')
-        .onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            this.messages.push(doc.data())
-          })
-        })
-    }
-  },
-  created () {
-    this.loadMessages()
+  components: {
+    noDisplayName,
+    ChatContainer,
+    sendMessage
   }
 }
 </script>

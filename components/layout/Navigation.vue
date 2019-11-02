@@ -40,7 +40,7 @@
         </nuxt-link>
       </li>
       <li v-if="isAuth">
-        <nuxt-link to="/private-chat">
+        <nuxt-link to="/profile">
           <i class="fas fa-user-circle fa-lg" />
         </nuxt-link>
       </li>

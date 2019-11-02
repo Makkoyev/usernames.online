@@ -11,6 +11,11 @@
           Contact
         </nuxt-link>
       </li>
+      <li>
+        <nuxt-link class="unEffect" to="/global-chat">
+          Chat
+        </nuxt-link>
+      </li>
     </ul>
   </footer>
 </template>
