@@ -51,6 +51,10 @@
 <script>
 export default {
   name: 'Navigation',
-  props: ['isAuth']
+  data () {
+    return {
+      isAuth: this.$store.state.options.isAuth
+    }
+  }
 }
 </script>

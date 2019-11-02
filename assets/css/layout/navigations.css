@@ -1,0 +1,98 @@
+#nav-bar, #footer {
+  background: #343E3D;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 10vh;
+}
+
+#nav-bar > .logo, #footer > .logo {
+  padding: 1rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1.3px;
+}
+
+#nav-bar ul, #footer ul {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#nav-bar ul li, #footer ul li {
+  list-style: none;
+  padding: 1rem;
+}
+
+#nav-bar ul li .unEffect::after, #footer ul li .unEffect::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.65);
+  -webkit-transition: width 1s ease;
+  transition: width 1s ease;
+}
+
+#nav-bar ul li .unEffect:hover::after, #footer ul li .unEffect:hover::after {
+  width: 100%;
+}
+
+#nav-bar ul li a, #footer ul li a {
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+#nav-bar ul li a:hover, #footer ul li a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#nav-bar ul li a i, #footer ul li a i {
+  color: rgba(255, 255, 255, 0.65);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+#nav-bar ul li a i:hover, #footer ul li a i:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#nav-bar ul li a > .fas, #footer ul li a > .fas {
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+}
+
+#nav-bar ul li a > .fas:hover, #footer ul li a > .fas:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+#nav-bar ul li a .fa-plus-circle:hover, #footer ul li a .fa-plus-circle:hover {
+  color: yellow;
+}
+
+#nav-bar ul li a .fa-comment-alt:hover, #footer ul li a .fa-comment-alt:hover {
+  color: yellow;
+}
+
+#nav-bar ul li a .fa-user-friends:hover, #footer ul li a .fa-user-friends:hover {
+  color: yellow;
+}
+
+#nav-bar ul li a .fa-user-circle:hover, #footer ul li a .fa-user-circle:hover {
+  color: yellow;
+}
+/*# sourceMappingURL=navigations.css.map */

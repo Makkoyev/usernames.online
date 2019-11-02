@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div v-if="!loading">
-      <Navigation :isAuth="isAuth" />
+    <div v-if="isLoaded">
+      <Navigation />
       <div class="container">
         <nuxt />
       </div>
       <Footer />
     </div>
-    <div v-else>LOADING</div>
+    <div v-else>{{ isLoaded }}</div>
   </div>
 </template>
 
@@ -24,26 +24,31 @@ export default {
   },
   data () {
     return {
-      loading: true,
-      isAuth: false
+      isLoaded: false
     }
   },
-  mounted () {
+  methods: {
+    isReady (arg) {
+      this.isLoaded = arg
+    }
+  },
+  mounted () { // NEST LOGIC BASED ON PAGE WITH location.href.includes('PAGE NAME')
     auth.onAuthStateChanged((user) => {
-      this.loading = true
       if (user) {
         const u = user
         this.$store.dispatch('user/setUserAction', new User(u.uid, u.displayName, u.email, u.emailVerified, u.phoneNumber, u.photoURL, u.metadata))
-        if (this.$store.state.user.data) {
-          this.$store.dispatch('user/setUserDBAction', this.$store.state.user.data.uid)
-        }
-        this.loading = false
-        this.isAuth = true
+          .then(() => {
+            this.$store.dispatch('user/setUserDBAction', this.$store.state.user.data.uid)
+            this.$store.dispatch('options/setAuthenticatedAction', true)
+            this.isReady(true)
+          })
       } else {
         this.$store.dispatch('user/setUserAction', null)
-        this.$store.commit('user/setUserDB', null)
-        this.loading = false
-        this.isAuth = false
+          .then(() => {
+            this.$store.commit('user/setUserDB', null)
+            this.$store.dispatch('options/setAuthenticatedAction', false)
+            this.isReady(true)
+          })
       }
     })
   }

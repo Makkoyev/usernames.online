@@ -4,6 +4,9 @@ const mutations = {
   },
   setUserDB (state, payload) {
     state.dataDB = payload
+  },
+  setAuthenticated (state, payload) {
+    state.isAuth = payload
   }
 }
 

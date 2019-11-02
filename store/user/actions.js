@@ -45,6 +45,9 @@ const actions = {
   setUserAction ({ commit }, payload) {
     commit('setUser', payload)
   },
+  setAuthenticatedAction ({ commit }, payload) {
+    commit('setAuthenticated', payload)
+  },
   setUserDBAction ({ commit }, payload) {
     if (!payload) {
       commit('setUserDB', payload)
