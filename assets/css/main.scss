@@ -13,3 +13,20 @@ html * {
 .container {
   @include calcLayout(map-get($container, "height"), map-get($container, "margin-h"), map-get($container, "width"), map-get($container, "margin-w"));
 }
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  .avatar-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    .verified-profile {
+      font-size: 1.5rem;
+      color: green;
+      position: absolute;
+      left: 126px;
+    }
+  }
+}

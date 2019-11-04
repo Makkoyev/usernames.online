@@ -28,15 +28,14 @@ export default {
     }
   },
   methods: {
-    isReady (arg) {
-      this.isLoaded = arg
+    isReady (boolean) {
+      this.isLoaded = boolean
     }
   },
   mounted () { // NEST LOGIC BASED ON PAGE WITH location.href.includes('PAGE NAME')
     auth.onAuthStateChanged((user) => {
       if (user) {
-        const u = user
-        this.$store.dispatch('user/setUserAction', new User(u.uid, u.displayName, u.email, u.emailVerified, u.phoneNumber, u.photoURL, u.metadata))
+        this.$store.dispatch('user/setUserAction', new User(user.uid, user.displayName, user.email, user.emailVerified, user.phoneNumber, user.photoURL, user.metadata))
           .then(() => {
             this.$store.dispatch('user/setUserDBAction', this.$store.state.user.data.uid)
             this.$store.dispatch('options/setAuthenticatedAction', true)

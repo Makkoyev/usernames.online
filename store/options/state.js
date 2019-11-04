@@ -1,5 +1,6 @@
 const state = () => ({
-  isAuth: false
+  isAuth: false,
+  isVerified: false
 })
 
 export default state
